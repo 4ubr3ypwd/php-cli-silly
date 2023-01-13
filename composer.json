@@ -8,9 +8,8 @@
             "email": "code@aubreypwd.com"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
-        "mnapoli/silly": "dev-master"
+        "mnapoli/silly": "^1.8"
     },
     "autoload": {
         "files": [
