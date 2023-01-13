@@ -1,0 +1,23 @@
+{
+    "name": "aubreypwd/php-cli-silly",
+    "type": "command",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aubrey Portwood",
+            "email": "code@aubreypwd.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "mnapoli/silly": "dev-master"
+    },
+    "autoload": {
+        "files": [
+            "src/autoload.php"
+        ]
+    },
+    "bin": [
+        "silly"
+    ]
+}
