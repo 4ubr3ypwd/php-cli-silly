@@ -14,11 +14,13 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 $app = new Silly\Application();
 
-$app->command(
-    'greet name [--yell]',
-    function ($name, OutputInterface $output) {
-        echo "$name";
-    }
-);
+$app->command( 'greet name [--yell]', function ($name, $yell, OutputInterface $output) {
+
+	if ( ! $yell ) {
+		return false;
+	}
+
+		$output->writeln( $name );
+} );
 
 $app->run();
