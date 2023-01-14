@@ -1,17 +1,24 @@
 <?php
 
-if ( file_exists( __DIR__ . '/../vendor/autoload.php' ) ) {
-	require __DIR__ . '/../vendor/autoload.php';
+if ( file_exists( dirname( __FILE__ ) . '/../vendor/autoload.php' ) ) {
+	require dirname( __FILE__ ) . '/../vendor/autoload.php';
+} elseif ( file_exists( dirname( __FILE__ ) . '/../../../autoload.php' ) ) {
+	require dirname( __FILE__ ) . '/../../../autoload.php';
 } else {
-	require __DIR__ . '/../../../autoload.php';
+
+	echo "Please run composer install.";
+	exit;
 }
 
 use Symfony\Component\Console\Output\OutputInterface;
 
 $app = new Silly\Application();
 
-$app->command( 'me [name]', function ( $name, OutputInterface $output ) {
-	$output->writeln( $name );
-} );
+$app->command(
+    'greet name [--yell]',
+    function ($name, OutputInterface $output) {
+        echo "$name";
+    }
+);
 
 $app->run();
