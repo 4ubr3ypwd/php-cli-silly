@@ -14,7 +14,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 $app = new Silly\Application();
 
-$app->command( 'greet name [--yell]', function ($name, $yell, OutputInterface $output) {
+// bin/silly __single --yell -- aubrey
+$app->command( '__single [name] [--yell]', function ( $name, $yell, OutputInterface $output ) {
 
 	if ( ! $yell ) {
 		return false;
@@ -22,5 +23,8 @@ $app->command( 'greet name [--yell]', function ($name, $yell, OutputInterface $o
 
 		$output->writeln( $name );
 } );
+
+// When you set a default command, you cannot run sub-commands normally.
+$app->setDefaultCommand( '__single', true );
 
 $app->run();
